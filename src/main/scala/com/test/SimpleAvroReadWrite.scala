@@ -19,7 +19,8 @@ object SimpleAvroReadWrite {
       (2012,8,"Batman",9.8),
       (2012,8,"Hero" , 8.7),
       (2011,7,"Git",2.0),
-      (2011,6,"Wonder Women" ,10)
+      (2011,6,"Wonder Women" ,10),
+      (2015,4,"Iron man",9)
     ).toDF("year","month","title","rating")
 
     df.coalesce(1).write.avro("avrotest")
