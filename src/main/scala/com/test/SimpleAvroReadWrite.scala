@@ -25,6 +25,9 @@ object SimpleAvroReadWrite {
 
     df.coalesce(1).write.avro("avrotest")
 
+    // partiton by specific column
+    df.write.partitionBy("year","month").avro("avrotest123")
+
     val dfReader = sqlContext.read.avro("avrotest/*.avro")
     dfReader.filter("rating > 5").foreach(println)
 
